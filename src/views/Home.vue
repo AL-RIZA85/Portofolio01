@@ -3,7 +3,24 @@ import { onMounted, ref, onUnmounted } from 'vue';
 import axios from 'axios';
 import CardComp from '../components/CardHomeComp.vue';
 import NavbarComp from '../components/NavbarComp.vue';
+
 import profile from '../assets/profile.png';
+
+import quranApp from '../assets/projects/quranApp.png'
+import tixId from '../assets/projects/tixId.png'
+import piggyApp from '../assets/projects/piggyApp.png'
+import platzi from '../assets/projects/platzi.png'
+
+import wikrama from '../assets/icons/wikrama.png'
+import framework from '../assets/icons/framework.png'
+import expressIcon from '../assets/icons/express.png'
+import figma from '../assets/icons/figma.png'
+import barista from '../assets/icons/barista.png'
+
+import ach1 from '../assets/achivment/1.png'
+import ach2 from '../assets/achivment/2.png'
+import ach3 from '../assets/achivment/3.png'
+import ach4 from '../assets/achivment/4.png'
 
 // scrool fungsi
 const scrollToSection = (sectionId) => {
@@ -76,7 +93,7 @@ const projects = [{
     name: "Quran App",
     role: "REACT JS",
     description: "Aplikasi Al-Quran digital dengan fitur membaca, mendengarkan audio murottal, dan terjemahan dalam berbagai bahasa. Dibangun dengan React JS untuk pengalaman pengguna yang responsif.",
-    image: "/src/assets/projects/quranApp.png",
+    image: quranApp,
     techStack: ["React JS", "Tailwind CSS"],
     features: [
         "Baca Al-Quran dengan terjemahan",
@@ -89,7 +106,7 @@ const projects = [{
     name: "TIX ID",
     role: "LARAVEL",
     description: "Platform pemesanan tiket bioskop online dengan fitur pemilihan kursi, pembayaran integrated, dan manajemen jadwal film. Dibangun menggunakan Laravel untuk backend yang robust.",
-    image: "/src/assets/projects/tixId.png",
+    image: tixId,
     techStack: ["Laravel", "MySQL", "Tailwind CSS"],
     features: [
         "Pemilihan kursi interaktif",
@@ -103,7 +120,7 @@ const projects = [{
     name: "PIGGY APP",
     role: "LARAVEL",
     description: "Aplikasi manajemen keuangan pribadi yang membantu pengguna melacak pemasukan, pengeluaran, dan menabung dengan target keuangan. Dibangun dengan Laravel dan fitur analitik keuangan.",
-    image: "/src/assets/projects/piggyApp.png",
+    image: piggyApp,
     techStack: ["Laravel", "MySQL", "Chart.js", "Bootstrap"],
     features: [
         "Tracking pemasukan & pengeluaran",
@@ -116,7 +133,7 @@ const projects = [{
     name: "Platzi Fake Stote",
     role: "REACT",
     description: "Aplikasi Ecomerse Demo Untuk Membeli Membuat Pesanan Dan Menambah Pesanan",
-    image: "/src/assets/projects/platzi.png",
+    image: piggyApp,
     techStack: ["React", "Public API", "Tailwind"],
     features: [
         "Tracking pemasukan & pengeluaran",
@@ -186,7 +203,7 @@ onMounted(() => {
                     <ul class="space-y-6 text-gray-800 text-lg leading-relaxed"
                         style="font-family: 'Inter', sans-serif;">
                         <li class="flex items-start gap-4">
-                            <img src="/src/assets/icons/wikrama.png" class="w-12 h-12 shrink-0" />
+                            <img :src="wikrama" class="w-12 h-12 shrink-0" />
                             <p>
                                 Saya adalah siswa di <span class="text-blue-600 font-semibold">SMK Wikrama Bogor</span>
                                 yang memiliki minat besar di bidang
@@ -195,7 +212,7 @@ onMounted(() => {
                         </li>
 
                         <li class="flex items-start gap-4">
-                            <img src="/src/assets/icons/framework.png" class="w-20 h-20 shrink-0" />
+                            <img :src="framework" class="w-20 h-20 shrink-0" />
                             <p>
                                 Terbiasa membangun aplikasi web modern dan responsif menggunakan <span
                                     class="text-blue-600 font-semibold">Vue.js</span>, <span
@@ -208,7 +225,7 @@ onMounted(() => {
                         </li>
 
                         <li class="flex items-start gap-4">
-                            <img src="/src/assets/icons/express.png" class="w-12 h-12 shrink-0" />
+                            <img :src="expressIcon" class="w-12 h-12 shrink-0" />
                             <p>
                                 Selain itu, saya juga memiliki dasar <span
                                     class="text-purple-600 font-semibold">Back-End</span> menggunakan <span
@@ -222,7 +239,7 @@ onMounted(() => {
                         </li>
 
                         <li class="flex items-start gap-4">
-                            <img src="/src/assets/icons/figma.png" class="w-12 h-12 shrink-0" />
+                            <img :src="figma" class="w-12 h-12 shrink-0" />
                             <p>
                                 Saya tertarik pada desain dan senang membuat tampilan yang clean, estetik, dan
                                 user-friendly menggunakan Figma.
@@ -231,7 +248,7 @@ onMounted(() => {
                         </li>
 
                         <li class="flex items-start gap-4">
-                            <img src="/src/assets/icons/barista.png" class="w-12 h-12 shrink-0" />
+                            <img :src="barista" class="w-12 h-12 shrink-0" />
                             <p>
                                 Di luar dunia coding, saya juga memiliki pengalaman bekerja part-time sebagai
                                 <span class="text-orange-500 font-semibold">barista</span> dan
@@ -269,13 +286,14 @@ onMounted(() => {
                 ACHIEVEMENT</h1>
 
             <div class="grid grid-cols-2 gap-6">
-                <img src="/src/assets/achivment/1.png" alt="Achievement 1"
+
+                <img :src="ach1" alt="Achievement 1"
                     class="w-full h-auto rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                <img src="/src/assets/achivment/2.png" alt="Achievement 2"
+                <img :src="ach2" alt="Achievement 2"
                     class="w-full h-auto rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                <img src="/src/assets/achivment/3.png" alt="Achievement 3"
+                <img :src="ach3" alt="Achievement 3"
                     class="w-full h-auto rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
-                <img src="/src/assets/achivment/4.png" alt="Achievement 4"
+                <img :src="ach4" alt="Achievement 4"
                     class="w-full h-auto rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
             </div>
         </div>
