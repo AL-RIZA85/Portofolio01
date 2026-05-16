@@ -9,7 +9,7 @@ const getMessages = async () => {
     try {
 
         const response = await axios.get(
-            'https://backend-porto-production-0ed8.up.railway.app/messages'
+             'https://backend-porto-production-0ed8.up.railway.app/messages'
         )
 
         messages.value = response.data
