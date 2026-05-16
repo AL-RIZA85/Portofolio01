@@ -3,6 +3,7 @@ import { onMounted, ref, onUnmounted } from 'vue';
 import axios from 'axios';
 import CardComp from '../components/CardHomeComp.vue';
 import NavbarComp from '../components/NavbarComp.vue';
+import ScrollToTop from '../components/ScrollToTop.vue';
 
 import profile from '../assets/profile.png';
 
@@ -170,14 +171,18 @@ onMounted(() => {
 <template>
     <section>
         <NavbarComp @scroll="scrollToSection" class="todo" />
+        <ScrollToTop />
 
-        <div class="todo">
-            <div class="flex justify-center mt-50" style="font-family: 'Bebas Neue', sans-serif;">
-                <h1 class="text-9xl animate-zoom-in">Welcome to<br> &nbsp; my portfolio</h1>
+        <!-- Hero Section - Mobile responsive -->
+        <div class="todo px-4 md:px-0">
+            <div class="flex justify-center mt-10 md:mt-50" style="font-family: 'Bebas Neue', sans-serif;">
+                <h1 class="text-5xl sm:text-7xl md:text-9xl animate-zoom-in text-center leading-tight">
+                    Welcome to<br>&nbsp;my portfolio
+                </h1>
             </div>
-            <small class="flex justify-center text-2xl animate-zoom-in">
-                &ensp;Helping creators grow beyond mere numbers From your first upload to millions <br>&ensp; I focus on
-                scaling website content and turning it into a real business.
+            <small class="flex justify-center text-base sm:text-xl md:text-2xl animate-zoom-in text-center px-4 md:px-0">
+                Helping creators grow beyond mere numbers From your first upload to millions<br class="hidden md:block" />
+                I focus on scaling website content and turning it into a real business.
             </small>
         </div>
 
@@ -186,24 +191,23 @@ onMounted(() => {
         </div>
     </section>
 
-    <section id="career" class="bg-blue-50 py-20 grid grid-cols-1 justify-items-center">
-        <!-- Career/About Section -->
+    <!-- Career/About Section - Mobile responsive -->
+    <section id="career" class="bg-blue-50 py-10 md:py-20 px-4 md:px-0 grid grid-cols-1 justify-items-center">
         <div
-            class="todo about-section bg-gradient-to-br from-white to-blue-200 w-[80%] p-16 rounded-2xl shadow-xl relative mb-10">
-            <div class="grid grid-cols-2 gap-10 items-center">
-                <div>
-                    <h1 class="text-black text-7xl leading-none" style="font-family: 'Bebas Neue', sans-serif;">
+            class="todo about-section bg-gradient-to-br from-white to-blue-200 w-full md:w-[80%] p-6 md:p-16 rounded-2xl shadow-xl relative mb-10">
+            <!-- Mobile: Stack vertically, Desktop: 2 column grid -->
+            <div class="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+                <div class="text-center md:text-left">
+                    <h1 class="text-black text-4xl sm:text-5xl md:text-7xl leading-none" style="font-family: 'Bebas Neue', sans-serif;">
                         ABOUT <br>ME
-
                     </h1>
-
                 </div>
 
                 <div>
-                    <ul class="space-y-6 text-gray-800 text-lg leading-relaxed"
+                    <ul class="space-y-4 md:space-y-6 text-gray-800 text-sm md:text-lg leading-relaxed"
                         style="font-family: 'Inter', sans-serif;">
-                        <li class="flex items-start gap-4">
-                            <img :src="wikrama" class="w-12 h-12 shrink-0" />
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <img :src="wikrama" class="w-10 h-10 md:w-12 md:h-12 shrink-0" />
                             <p>
                                 Saya adalah siswa di <span class="text-blue-600 font-semibold">SMK Wikrama Bogor</span>
                                 yang memiliki minat besar di bidang
@@ -211,8 +215,8 @@ onMounted(() => {
                             </p>
                         </li>
 
-                        <li class="flex items-start gap-4">
-                            <img :src="framework" class="w-20 h-20 shrink-0" />
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <img :src="framework" class="w-14 h-14 md:w-20 md:h-20 shrink-0" />
                             <p>
                                 Terbiasa membangun aplikasi web modern dan responsif menggunakan <span
                                     class="text-blue-600 font-semibold">Vue.js</span>, <span
@@ -224,8 +228,8 @@ onMounted(() => {
                             </p>
                         </li>
 
-                        <li class="flex items-start gap-4">
-                            <img :src="expressIcon" class="w-12 h-12 shrink-0" />
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <img :src="expressIcon" class="w-10 h-10 md:w-12 md:h-12 shrink-0" />
                             <p>
                                 Selain itu, saya juga memiliki dasar <span
                                     class="text-purple-600 font-semibold">Back-End</span> menggunakan <span
@@ -238,8 +242,8 @@ onMounted(() => {
                             </p>
                         </li>
 
-                        <li class="flex items-start gap-4">
-                            <img :src="figma" class="w-12 h-12 shrink-0" />
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <img :src="figma" class="w-10 h-10 md:w-12 md:h-12 shrink-0" />
                             <p>
                                 Saya tertarik pada desain dan senang membuat tampilan yang clean, estetik, dan
                                 user-friendly menggunakan Figma.
@@ -247,8 +251,8 @@ onMounted(() => {
                             </p>
                         </li>
 
-                        <li class="flex items-start gap-4">
-                            <img :src="barista" class="w-12 h-12 shrink-0" />
+                        <li class="flex items-start gap-3 md:gap-4">
+                            <img :src="barista" class="w-10 h-10 md:w-12 md:h-12 shrink-0" />
                             <p>
                                 Di luar dunia coding, saya juga memiliki pengalaman bekerja part-time sebagai
                                 <span class="text-orange-500 font-semibold">barista</span> dan
@@ -258,35 +262,31 @@ onMounted(() => {
                         </li>
                     </ul>
                 </div>
-
-
             </div>
 
-            <!-- Profile Card -->
-            <div class="absolute left-70 bottom-15">
+            <!-- Profile Card - Responsive positioning -->
+            <div class="mt-6 md:absolute md:left-70 md:bottom-15 flex justify-center">
                 <div
-                    class="cursor-pointer transform:perspective(800px)_rotateY(10deg) hover:[transform:perspective(800px)_rotateY(-10deg)] w-90 sm:w-70 p-5 bg-red-600 border rounded-lg shadow-lg group duration-300">
-                    <div class="bg-center bg-cover bg-img-bg p-5 rounded-lg">
-                        <img width="300px" class="duration-300 group-hover:-translate-x-8" :src="profile"
+                    class="cursor-pointer transform:perspective(800px)_rotateY(10deg) hover:[transform:perspective(800px)_rotateY(-10deg)] w-full max-w-xs md:w-90 sm:w-70 p-4 md:p-5 bg-red-600 border rounded-lg shadow-lg group duration-300">
+                    <div class="bg-center bg-cover bg-img-bg p-4 md:p-5 rounded-lg">
+                        <img width="100%" class="duration-300 group-hover:-translate-x-8" :src="profile"
                             alt="profile image">
                     </div>
                     <div class="text-center mt-4 text-gray-900">
-                        <p class="font-bold text-xl">Muhammad Al-RIZA Ramadhan</p>
+                        <p class="font-bold text-lg md:text-xl">Muhammad Al-RIZA Ramadhan</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div>
 
-        </div>
-        <!-- Achievement Section -->
+        <!-- Achievement Section - Mobile responsive -->
         <div id="achievement"
-            class="about-section bg-gradient-to-br from-blue-200 to-white w-[80%] p-16 rounded-2xl shadow-xl relative border border-black">
-            <h1 class="text-black text-7xl leading-none mb-10" style="font-family: 'Bebas Neue', sans-serif;">
+            class="about-section bg-gradient-to-br from-blue-200 to-white w-full md:w-[80%] p-6 md:p-16 rounded-2xl shadow-xl relative border border-black">
+            <h1 class="text-black text-4xl sm:text-5xl md:text-7xl leading-none mb-6 md:mb-10 text-center md:text-left" style="font-family: 'Bebas Neue', sans-serif;">
                 ACHIEVEMENT</h1>
 
-            <div class="grid grid-cols-2 gap-6">
-
+            <!-- Mobile: 1 column, Tablet: 2 columns, Desktop: 2 columns -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                 <img :src="ach1" alt="Achievement 1"
                     class="w-full h-auto rounded-lg transition-transform duration-300 hover:scale-105 cursor-pointer">
                 <img :src="ach2" alt="Achievement 2"
@@ -299,27 +299,28 @@ onMounted(() => {
         </div>
     </section>
 
-    <!-- Project Section -->
-    <section class="bg-blue-50 py-20 flex justify-center">
+    <!-- Project Section - Mobile responsive -->
+    <section class="bg-blue-50 py-10 md:py-20 px-4 md:px-0 flex justify-center">
         <div id="project"
-            class="bg-gradient-to-br from-gray-900 to-gray-700 py-20 relative w-[90%] rounded-2xl flex flex-col items-center shadow-2xl">
-            <h1 class="text-white text-5xl font-bold text-center mb-10" style="font-family: 'Bebas Neue', sans-serif;">
+            class="bg-gradient-to-br from-gray-900 to-gray-700 py-10 md:py-20 px-4 md:px-0 relative w-full md:w-[90%] rounded-2xl flex flex-col items-center shadow-2xl">
+            <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-6 md:mb-10 px-4" style="font-family: 'Bebas Neue', sans-serif;">
                 MADE BY <br> ME
             </h1>
 
-            <div class="relative w-full flex justify-center items-center min-h-[500px] px-12">
-                <!-- Left button -->
+            <div class="relative w-full flex justify-center items-center min-h-[400px] md:min-h-[500px] px-4 md:px-12">
+                <!-- Left button - larger touch target for mobile -->
                 <button @click="prevProject"
-                    class="absolute left-0 bg-white p-3 rounded-full shadow hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-300 z-10"
+                    class="absolute left-2 md:left-4 bg-white p-3 md:p-4 rounded-full shadow hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-300 z-10 text-lg md:text-xl"
                     aria-label="Previous project">
                     ←
                 </button>
 
                 <transition name="slide-fade" mode="out-in">
-                    <div :key="currentIndex" class="bg-white w-[80%] rounded-2xl shadow-2xl overflow-hidden">
-                        <div class="grid md:grid-cols-2 gap-0">
+                    <div :key="currentIndex" class="bg-white w-full md:w-[80%] rounded-2xl shadow-2xl overflow-hidden">
+                        <!-- Mobile: Stack vertically, Desktop: 2 column grid -->
+                        <div class="flex flex-col md:grid md:grid-cols-2 gap-0">
                             <!-- Image Section -->
-                            <div class="relative h-64 md:h-full overflow-hidden bg-gray-200">
+                            <div class="relative h-48 sm:h-64 md:h-full overflow-hidden bg-gray-200">
                                 <img :src="projects[currentIndex].image" :alt="projects[currentIndex].name"
                                     class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                                 <div
@@ -333,21 +334,21 @@ onMounted(() => {
                                 </div>
                             </div>
 
-                            <div class="p-8">
-                                <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ projects[currentIndex].name }}</h2>
-                                <span class="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-sm mb-4">{{
+                            <div class="p-4 md:p-8">
+                                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2">{{ projects[currentIndex].name }}</h2>
+                                <span class="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-xs md:text-sm mb-4">{{
                                     projects[currentIndex].role }}</span>
 
-                                <p class="text-gray-600 mb-6 leading-relaxed">
+                                <p class="text-gray-600 mb-4 md:mb-6 text-sm md:text-base leading-relaxed">
                                     {{ projects[currentIndex].description }}
                                 </p>
 
                                 <!-- Tech Stack -->
-                                <div class="mb-6">
-                                    <h3 class="text-sm font-semibold text-gray-700 mb-2">Tech Stack</h3>
+                                <div class="mb-4 md:mb-6">
+                                    <h3 class="text-xs md:text-sm font-semibold text-gray-700 mb-2">Tech Stack</h3>
                                     <div class="flex flex-wrap gap-2">
                                         <span v-for="tech in projects[currentIndex].techStack" :key="tech"
-                                            class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">
+                                            class="bg-blue-100 text-blue-700 px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm">
                                             {{ tech }}
                                         </span>
                                     </div>
@@ -355,10 +356,10 @@ onMounted(() => {
 
                                 <!-- Features -->
                                 <div>
-                                    <h3 class="text-sm font-semibold text-gray-700 mb-2">Key Features</h3>
+                                    <h3 class="text-xs md:text-sm font-semibold text-gray-700 mb-2">Key Features</h3>
                                     <ul class="space-y-1">
                                         <li v-for="feature in projects[currentIndex].features" :key="feature"
-                                            class="text-gray-600 text-sm flex items-center gap-2">
+                                            class="text-gray-600 text-xs md:text-sm flex items-center gap-2">
                                             ✓ {{ feature }}
                                         </li>
                                     </ul>
@@ -368,14 +369,16 @@ onMounted(() => {
                     </div>
                 </transition>
 
+                <!-- Right button - larger touch target for mobile -->
                 <button @click="nextProject"
-                    class="absolute right-0 bg-white p-3 rounded-full shadow hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-300 z-10"
+                    class="absolute right-2 md:right-4 bg-white p-3 md:p-4 rounded-full shadow hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-300 z-10 text-lg md:text-xl"
                     aria-label="Next project">
                     →
                 </button>
             </div>
 
-            <div class="flex gap-3 mt-8">
+            <!-- Dots indicator - larger for mobile -->
+            <div class="flex gap-3 mt-6 md:mt-8">
                 <button v-for="(_, idx) in projects" :key="idx" @click="currentIndex = idx"
                     class="h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white"
                     :class="idx === currentIndex ? 'w-8 bg-white' : 'w-3 bg-white/50 hover:bg-white/70'"
@@ -384,19 +387,18 @@ onMounted(() => {
         </div>
     </section>
 
+    <!-- Contact Section - Mobile responsive -->
     <section id="quiqckStart"
-        class=" bg-black text-white min-h-screen flex flex-col justify-between relative overflow-hidden">
+        class="bg-black text-white min-h-screen flex flex-col justify-between relative overflow-hidden px-4 md:px-0">
 
-        <div class="todo grid grid-cols-2 gap-10 p-16 relative z-10">
-
+        <div class="todo flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-10 p-4 md:p-16 relative z-10">
             <!-- LEFT -->
             <div class="flex flex-col justify-between">
-
-                <h1 class="text-9xl leading-none font-bold" style="font-family: 'Bebas Neue', sans-serif;">
+                <h1 class="text-4xl sm:text-6xl md:text-9xl leading-none font-bold" style="font-family: 'Bebas Neue', sans-serif;">
                     LET'S GROW <br> YOUR WEBSITE
                 </h1>
 
-                <div class="flex gap-20 mt-10 text-sm opacity-70">
+                <div class="flex gap-10 md:gap-20 mt-6 md:mt-10 text-xs md:text-sm opacity-70 flex-col md:flex-row">
                     <ul class="space-y-2">
                         <li>
                             <button @click="scrollToSection('career')"
@@ -443,50 +445,44 @@ onMounted(() => {
                         </li>
                     </ul>
                 </div>
-
             </div>
 
-            <!-- form message -->
+            <!-- form message - Mobile responsive -->
             <div class="flex items-center">
-                <div class="w-full space-y-6">
-
+                <div class="w-full space-y-4 md:space-y-6">
                     <div>
-                        <label class="text-sm opacity-60">SEND YOUR MESSAGE</label>
+                        <label class="text-xs md:text-sm opacity-60">SEND YOUR MESSAGE</label>
                     </div>
 
                     <div>
-                        <label class="text-sm opacity-60">NAME</label>
-                        <input v-model="name" class="w-full bg-transparent border-b border-gray-600 outline-none py-2">
+                        <label class="text-xs md:text-sm opacity-60">NAME</label>
+                        <input v-model="name" class="w-full bg-transparent border-b border-gray-600 outline-none py-2 text-sm md:text-base">
                     </div>
 
-
-
                     <div>
-                        <label class="text-sm opacity-60">MESSAGE</label>
+                        <label class="text-xs md:text-sm opacity-60">MESSAGE</label>
                         <input v-model="message"
-                            class="w-full bg-transparent border-b border-gray-600 outline-none py-2">
+                            class="w-full bg-transparent border-b border-gray-600 outline-none py-2 text-sm md:text-base">
                     </div>
 
                     <div>
-                        <label class="text-sm opacity-60">YOUR EMAIL</label>
-                        <input v-model="email" class="w-full bg-transparent border-b border-gray-600 outline-none py-2">
+                        <label class="text-xs md:text-sm opacity-60">YOUR EMAIL</label>
+                        <input v-model="email" class="w-full bg-transparent border-b border-gray-600 outline-none py-2 text-sm md:text-base">
                     </div>
 
-                    <button @click="sendMessage" class="w-full bg-white text-black py-3 rounded-md mt-6">
+                    <button @click="sendMessage" class="w-full bg-white text-black py-3 rounded-md mt-4 md:mt-6 text-sm md:text-base font-semibold">
                         SUBMIT
                     </button>
-
                 </div>
             </div>
-
         </div>
 
+        <!-- Background text - responsive sizing -->
         <h1 class="absolute bottom-[0px] left-1/2 -translate-x-1/2 
-           text-[590px] leading-none font-bold 
+           text-[200px] sm:text-[300px] md:text-[590px] leading-none font-bold 
            opacity-10 pointer-events-none z-0" style="font-family:'Bebas Neue', sans-serif;">
             INFLUENCE
         </h1>
-
     </section>
 </template>
 
